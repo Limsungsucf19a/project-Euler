@@ -1,5 +1,8 @@
 
 sum = 0
-for x in range  (1,100):
-  sum = sum + x
+for x in range  (1,101):
+z = x/2 
+  sum = sum + z
+  return z
   print (sum)
+
