@@ -1,8 +1,10 @@
 
 sum = 0
 for x in range  (1,101):
-z = x/2 
-  sum = sum + z
-  return z
+  x % 3 == 0
+  x = True 
+  if (x % 3 == 0)
+  sum = sum + x:
+
   print (sum)
 
