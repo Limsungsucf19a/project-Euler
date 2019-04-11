@@ -1,12 +1,18 @@
-def gcdlcm(a, b): 
-    c = max(a, b) 
-    d = min(a, b) 
-    t = 1 
-    while t > 0: 
-        t = c % d 
-        c = d
-        d = t 
-    answer = [c, int(a*b/c)] 
-    return answer  
+# 최대공약수
+def gcd(a, b):
+      while (b != 0):
+        temp = a % b
+        a = b
+        b = temp
+      return abs(a)
 
-print(gcdlcm(5,20))
+
+# 최소 공배수 
+def lcm(a, b):
+    gcd_value = gcd(a, b)
+    if (gcd_value == 0): 
+        return 0 
+    return abs( int((a * b) / gcd_value) )
+
+print(gcd(12,14))
+print(lcm(12,14))
