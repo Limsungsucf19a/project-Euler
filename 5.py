@@ -16,6 +16,6 @@ while True:
             con = 1
             break
     if con == 1:
-        break
+        break 
  
 print(n)
