@@ -7,20 +7,23 @@ csvFile = open("f:down/cgv.csv", 'w+')
 resp = requests.get('http://www.cgv.co.kr/movies/')
 soup = BeautifulSoup(resp.text, 'html.parser')
 
-tags = soup.select('strong class=' '.title')
-title = tags[0].getText()
-print(title)
+ranks = soup.find_all(class_ = "rank")
+titles = soup.find_all(class_ = "title")
+grades = soup.find_all(class_ = "ico-grade") 
+infos = soup.find_all(class_ = "txt-info")
 
+
+for i in range(0,7):
+    print(ranks[i].get_text(), titles[i].get_text(), 
+          grades[i].get_text(), infos[i].get_text())
 
 writer = csv.writer(csvFile)
 
-#for hotkey in hotkeywords:
-#        writer.writerow(f'{hotkey.select_one("title").get_text()} '
-#                        f'{hotkey.select_one("percent").get_text()} ')
-for hotkey in hotkeywords:
-        print( f'{hotkey.select_one("title").get_text()} '
-               f'{hotkey.select_one("percent").get_text()} ')                        
+for i in range(0,7):
+   writer.writerow([ranks[i].get_text(), titles[i].get_text(),
+                    grades[i].get_text(), infos[i].get_text()])
 
+csvFile.close()
                      
 
 
